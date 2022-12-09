@@ -584,6 +584,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
             )
             .whenComplete(event.complete);
       } else {
+        _pageController.jumpToPage(index);
         event.complete();
       }
     } else {
