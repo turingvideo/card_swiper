@@ -1,5 +1,6 @@
 library transformer_page_view;
 
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/widgets.dart';
 
 import 'index_controller.dart';
@@ -98,7 +99,7 @@ class PageTransformerBuilder extends PageTransformer {
   }
 }
 
-class TransformerPageController extends PageController {
+class TransformerPageController extends ExtendedPageController {
   final bool loop;
   final int itemCount;
   final bool reverse;
@@ -107,14 +108,19 @@ class TransformerPageController extends PageController {
     int initialPage = 0,
     bool keepPage = true,
     double viewportFraction = 1.0,
+    double pageSpacing = 0.0,
+    bool shouldIgnorePointerWhenScrolling = false,
     this.loop = false,
     this.itemCount = 0,
     this.reverse = false,
   }) : super(
-            initialPage: TransformerPageController._getRealIndexFromRenderIndex(
-                initialPage, loop, itemCount, reverse),
-            keepPage: keepPage,
-            viewportFraction: viewportFraction);
+          initialPage: TransformerPageController._getRealIndexFromRenderIndex(
+              initialPage, loop, itemCount, reverse),
+          keepPage: keepPage,
+          viewportFraction: viewportFraction,
+          pageSpacing: pageSpacing,
+          shouldIgnorePointerWhenScrolling: shouldIgnorePointerWhenScrolling,
+        );
 
   int getRenderIndexFromRealIndex(num index) {
     return _getRenderIndexFromRealIndex(index, loop, itemCount, reverse);
@@ -423,8 +429,8 @@ class _TransformerPageViewState extends State<TransformerPageView> {
   @override
   Widget build(BuildContext context) {
     final builder = _transformer == null ? _buildItemNormal : _buildItem;
-    final child = PageView.builder(
-      allowImplicitScrolling: widget.allowImplicitScrolling,
+    final child = ExtendedImageGesturePageView.builder(
+      // allowImplicitScrolling: widget.allowImplicitScrolling,
       itemBuilder: builder,
       itemCount: _pageController.getRealItemCount(),
       onPageChanged: _onIndexChanged,

@@ -1,3 +1,4 @@
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/widgets.dart';
 import '../card_swiper.dart';
 
@@ -18,7 +19,7 @@ class SwiperPluginConfig {
   final PageIndicatorLayout? indicatorLayout;
   final bool loop;
   final bool? outer;
-  final PageController? pageController;
+  final ExtendedPageController? pageController;
   final SwiperLayout? layout;
 
   const SwiperPluginConfig({

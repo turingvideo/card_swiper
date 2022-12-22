@@ -2,6 +2,7 @@
 
 library flutter_page_indicator;
 
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 
 import '../transformer_page_view/transformer_page_view.dart';
@@ -331,7 +332,7 @@ class PageIndicator extends StatefulWidget {
   // Only valid when layout==PageIndicatorLayout.drop
   final double dropHeight;
 
-  final PageController controller;
+  final ExtendedPageController controller;
 
   final double activeSize;
 

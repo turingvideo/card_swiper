@@ -125,9 +125,13 @@ class ExampleHorizontal extends StatelessWidget {
       body: Swiper(
         itemBuilder: (context, index) {
           final image = images[index];
-          return Image.asset(
-            image,
-            fit: BoxFit.fill,
+          return InteractiveViewer(
+            minScale: 1,
+            maxScale: 5,
+            child: Image.asset(
+              image,
+              fit: BoxFit.fill,
+            ),
           );
         },
         indicatorLayout: PageIndicatorLayout.COLOR,

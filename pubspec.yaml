@@ -7,6 +7,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  extended_image: ^6.2.0
+
 environment:
   sdk: ">=2.12.0 <3.0.0"
   flutter: ">=0.1.4"
