@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  extended_image: ^8.0.2
+  extended_image: ^8.1.0
 
 dev_dependencies:
   flutter_lints_plus: ^1.0.1
